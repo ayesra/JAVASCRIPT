@@ -3,27 +3,34 @@
 // ? ==========================================================
 console.log("************ 4- SCOPE *************");
 
-//! Global Scope
+//!global scope
 
-let birinci=5;
-let ikinci=12;
-let ucuncu=123;
+let birinci = 5;
+let ikinci = 12;
+let ucuncu = 123;
 
 console.log(birinci, ikinci, ucuncu);
 
-const scopeDeneme=function(){
-    birinci=8;
+const scopeDeneme = function () {
 
-    let ikinci=45
+    birinci = 8;
+
+    // yeni bir ikinci oluşturdu ve dışarıdan erişilemez hale geldi
+    let ikinci = 45
     console.log(ikinci);
 
-    let dorduncu=1234
 
-//return dorduncu => yazilir fonksiyon disina dorduncu yandaki gibi yazarsak dönmüs olur => console.log(scopeDeneme())=1234
+    let dorduncu = 1234
+
+    return dorduncu
+    // return dorduncu => yazılır fonksiyon dışına dorduncu yandaki gibi yazarsak dönmüş olur=>  console.log(scopeDeneme())=1234
+
 }
 
-scopeDeneme()
 
-console.log(birinci);
+console.log(birinci);//8
 console.log(ikinci);
-console.log(dorduncu);
+//  console.log(dorduncu);
+alert(scopeDeneme())
+
+console.log(ucuncu);

@@ -66,8 +66,9 @@ const fibonacciNumber = (n) => {
         fiboSag = yeniFibo;
         toplam += fiboSag;
     }
-
-    return ` fiboSag: ${fiboSag} toplam: ${toplam}`;
+    console.log(toplam);
+    return yeniFibo
+    // return ` fiboSag: ${fiboSag} toplam: ${toplam}`;
 };
 
 alert(fibonacciNumber(8));
