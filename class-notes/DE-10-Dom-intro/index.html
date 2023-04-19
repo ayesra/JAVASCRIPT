@@ -6,11 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body class="badi">
+<body id="badi">
+
+    <!--! EVENTS ALANI -->
+
+        <!--* inline js kodlari -->
+    <h1 onmouseover="style.color='blue'" onmouseout="style.color='red'">JAVASCRIPT TE DOM</h1>
+
+    <!--* javascript dosyasinda belirlenen metodlari html sayfasinda cagirdik -->
+    <h1 class="H5"  onmouseover=yesil() onmouseout=kirmizi()>DOM BASICS</h1>
+
+    <!--! **************** -->
+
+
+    <!--! SELECTOR ALANI -->
+
+
     <h1 class="H1">DOM SELECTOR</h1>
  <h2 class="H2">HOŞGELDİN</h2>
 
- <h2 class="H1">MERHABA</h2>
+ <h2 class="H1" id="js">MERHABA</h2>
 
  <img class="bir" src="./img/js_logo.png" alt=""> <br>
  <img class="iki" src="./img/logo2.png" alt="">
@@ -19,6 +34,7 @@
 <p id="par2">NABER</p>
 <button id="btn">Tikla</button>
 
-    <script src="1-selector.js"></script>
+    <!-- <script src="1-selector.js"></script> -->
+    <script src="2-events.js"></script>
 </body>
 </html>
