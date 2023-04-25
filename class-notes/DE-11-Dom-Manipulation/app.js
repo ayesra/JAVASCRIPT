@@ -130,8 +130,8 @@ document.querySelector(".ekle").onclick = () => {
 
 document.querySelector(".sil").onclick = () => {
     liste.removeChild(liste.lastElementChild); //ul nin son çocuğunu siler
-    liste.removeChild(liste.firstElementChild); //ul nin ilk çocuğunu siler
-    liste.removeChild(liste.children[2]); //ul nin çocuklarından 2 index liyi siler
+    //* liste.removeChild(liste.firstElementChild); //ul nin ilk çocuğunu siler
+    //* liste.removeChild(liste.children[2]); //ul nin çocuklarından 2 index liyi siler
 };
 
 //!klavyedeki keyCodeları kullanarak kod yazma
