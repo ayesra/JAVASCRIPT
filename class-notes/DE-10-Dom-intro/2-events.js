@@ -9,19 +9,19 @@
 //?---------------------------------------------------------------
 
 //****/ alttaki satirlari HTML sayfasinda yazdik***//
-{/* <h1 onmouseover="style.color='blue'" onmouseout="style.color='red'">JAVASCRIPT TE DOM</h1> */}
+{/* <h1 onmouseover="style.color='blue'" onmouseout="style.color='red'">JAVASCRIPT TE DOM</h1> */ }
 
 //? METHOD-2 (Function calling in HTML)
 //?---------------------------------------------------------------
 
 
 //JAVASCRIPT
-const baslik= document.querySelector(".H5")
+const baslik = document.querySelector(".H5")
 
-const yesil=()=>baslik.style.color="green";
+const yesil = () => baslik.style.color = "green";
 //* "yesil" diye bir fonksiyona atadik***"yesil" diye bir fonksiyon cagirildiginda yesil yap***
 
-const kirmizi=()=>baslik.style.color="red";
+const kirmizi = () => baslik.style.color = "red";
 
 //*index.html deki kod
 //  < !--* javascript dosyasinda belirlenen metodlari html sayfasinda cagirdik-- >
@@ -32,9 +32,9 @@ const kirmizi=()=>baslik.style.color="red";
 
 //*example1
 
-document.querySelector("#js").onmouseover=()=>{
+document.querySelector("#js").onmouseover = () => {
 
-    document.querySelector("#badi").style.backgroundColor="pink"
+    document.querySelector("#badi").style.backgroundColor = "pink"
 }
 
 document.querySelector("#js").onmouseout = () => {
@@ -56,18 +56,18 @@ document.querySelector("#js").onmouseout = () => {
 //*example2 (onclick- ondblclick)
 
 //logo bir ile ikinin tiklandiklarinda yerlerini degistirecegiz
-const birinci=document.querySelector(".bir")
-const ikinci=document.querySelector(".iki")
+const birinci = document.querySelector(".bir")
+const ikinci = document.querySelector(".iki")
 
 
 birinci.onclick = () => {
     birinci.src = "./img/logo2.png"
     ikinci.src = "./img/js_logo.png";
-     
+
     ikinci.onclick = () => {
-    birinci.src = "./img/js_logo.png"
-    ikinci.src = "./img/logo2.png"
-  }
+        birinci.src = "./img/js_logo.png"
+        ikinci.src = "./img/logo2.png"
+    }
 }
 // alternatif yazim sekli: const la da yazilabilir
 // birinci.onclick = () => {
@@ -84,24 +84,33 @@ birinci.onclick = () => {
 // }
 
 
-ikinci.ondblclick=()=>{
+ikinci.ondblclick = () => {
     birinci.src = "./img/img1.jpg"
     ikinci.src = "./img/img2.jpg"
 }
 
 
 //*example3
-const buton=document.querySelector("#btn")
+const buton = document.querySelector("#btn")
 
-buton.onclick=()=>{
-    badi.style.backgroundImage="linear-gradient(to right, purple, gray)"
+buton.onclick = () => {
+    badi.style.backgroundImage = "linear-gradient(to right, purple, gray)"
 
-    buton.textContent="SEARCH"
-    buton.style.fontSize="40px"
-    buton.style.color="red"
+    buton.textContent = "SEARCH"
+    buton.style.fontSize = "40px"
+    buton.style.color = "red"
 }
 
 //!aynı element e (merhaba yazısına mouse ile gelince badi renk değiştirdin demiştik) hem onclick hem onmouseover atandığında, önce onmouseover  sonra onclick i çalıştırırsanız sorun olmaz, tersi durumda onclick baskın old için onmouseover çalışmaz
 
+// ? METHOD-4 (sadece JAVASCRIPT te yazılır- addEventListener())  2.yol
+// ? ---------------------------------------------------------------
+buton.addEventListener("click", () => {
+    document.querySelector("body").style.backgroundImage =
+        "linear-gradient(to right, purple, gray)";
+    buton.textContent = "SEARCH";
+    buton.style.fontSize = "30px";
+    header.style.color = "red";
+});
 
 
