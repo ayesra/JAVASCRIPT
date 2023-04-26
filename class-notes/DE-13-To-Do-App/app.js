@@ -65,49 +65,48 @@ const createSilButon = () => {
             a.parentElement.remove()
             total = total - 1
             toplam.textContent = total;
+
+            if(a.parentElement.classList.contains("checked")){
+                completed=completed-1
+                document.querySelector("#tamamlanan").textContent=completed;
+            }
         }
     })
 }
 
 
 const createCheckButon = () => {
-    //! Target özelliği, her zaman olay dinleyicisinin olayı tetiklediği öğeye başvuran currentTarget özelliğinin aksine, olayın orjinal olarak gerçekleştiği öğeyi alır .
+    //   //!---2.yol----
+    document.querySelectorAll(".fa-check").forEach((a) => {
+        a.onclick = () => {
+            if (a.parentElement.className == "checked") {
+                a.parentElement.className = "";
+                completed = completed - 1;
+            } else {
+                a.parentElement.className = "checked";
+                completed = completed + 1;
+            }
+            document.querySelector("#tamamlanan").textContent = completed;
+        };
+    });
+    //!---1.yol----Target özelliği, her zaman olay dinleyicisinin olayı tetiklediği öğeye başvuran currentTarget özelliğinin aksine, olayın orjinal olarak gerçekleştiği öğeyi alır .
 
-    listeUl.onclick = (e) => {
-        console.log(e.target.parentElement.classList);
+    // listeUl.onclick = (e) => {
+    //     console.log(e.target.parentElement.classList);
 
-        // if(e.target.parentElement.className=="checked"){
-        // e.target.parentElement.className="ayse"
+        
 
-        // }else{e.target.parentElement.className="checked"}
+      //      if (e.target.parentElement.classList.contains("checked")) {
+   //        e.target.parentElement.classList.remove("checked");
+   // completed=completed-1
 
-        if (e.target.parentElement.classList.contains("checked")) {
-            e.target.parentElement.classList.remove("checked");
-            completed=completed-1
+   //      } else {
+   //        e.target.parentElement.classList.add("checked");
+   // completed = completed + 1;
 
-        } else {
-            e.target.parentElement.classList.add("checked");
-            completed=completed +1
-        }
-        document.querySelector("#tamamlanan").textContent=completed
-    }
+   //      }
+   //      document.querySelector("#tamamlanan").textContent=completed
+   //    };
     // !! classList ve className sonuç istendiğinde aynı sonucu verir tek farkla; classList bir liste, className bir isim şeklinde verir. bunun tek dezavantajı, zaten class ı olan bir elemana className="örnek" şeklinde eleman atamak istersek, varolan elemanları silip sadece örnek class ı nı atar. classList ile toggle ve contains kullanmalıyız, className ile toggle kullanamıyoruz contains yerine includes kullanmalıyız, javascriptte includes tercih edilir
 }
 
- //   //!2.yol
-  //  document.querySelectorAll(".fa-check").forEach((a) => {
-  //    a.onclick = () => {
- 
-  //       if (a.parentElement.className=="checked")
-  //        {
- 
-  //         a.parentElement.className=""
-  //         completed = completed - 1;
-  //       } else {
- 
-  //         a.parentElement.className = "checked";
-  //         completed = completed + 1;
-  //       }
-  //      document.querySelector("#tamamlanan").textContent = completed;
-  //    };
-  //  })
