@@ -5,10 +5,232 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout Page</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
-  <body>
+   <body>
+    <h1 class="text-center mb-4 mt-2">Checkout</h1>
+    <main class="container">
+      <div class="aaa">
+        <div
+          class="container col-md-6 bg-body-secondary p-4"
+          style="border-radius: 15px"
+        >
+          <div class="row mb-3">
+            <div class="resim col-5">
+              <img
+                src="./img/photo1.png"
+                class="img-thumbnail"
+                alt=""
+                style="border-radius: 15px"
+              />
+            </div>
+            <div class="infos col-7 d-flex flex-column justify-content-between">
+              <h4>Vintage Backbag</h4>
+              <p class="text-warning fs-5 fw-bold">
+                $25.98
+                <span class="text-black ms-1 text-decoration-line-through fs-6"
+                  >$34.99</span
+                >
+              </p>
+              <div
+                class="btn-group gap-3 mt-1"
+                style="
+                  border: 1px solid gray;
+                  padding: 1px 15px;
+                  width: 150px;
+                  height: 35px;
+                  margin-bottom: 3px;
+                "
+                role="group"
+                aria-label="Basic example"
+              >
+                <button
+                  type="button"
+                  class="minus1 btn btn-light"
+                  style="background-color: #c5c8ce; font-size: small"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+                <p class="number1 fs-5">1</p>
+                <button
+                  type="button"
+                  class="plus1 btn btn-light"
+                  style="background-color: #c5c8ce; font-size: small"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  class="remove btn btn-danger fs-6"
+                  style="padding: 1px 14px"
+                >
+                  Remove
+                </button>
+              </div>
+              <p class="fw-bold">
+                Product Total: $<span class="sil" id="bag">25.98</span>
+              </p>
+            </div>
+          </div>
 
+          <div class="row mb-3">
+            <div class="resim col-5">
+              <img
+                src="./img/photo2.png"
+                class="img-thumbnail"
+                alt=""
+                style="border-radius: 15px"
+              />
+            </div>
+            <div class="infos col-7 d-flex flex-column justify-content-between">
+              <h4>Levi Shoes</h4>
+              <p class="text-warning fs-5 fw-bold">
+                $45.99<span
+                  class="text-black ms-1 text-decoration-line-through fs-6"
+                  >$54.99</span
+                >
+              </p>
+              <div
+                class="btn-group gap-2 mt-3"
+                style="
+                  border: 1px solid gray;
+                  padding: 1px 15px;
+                  width: 150px;
+                  height: 35px;
+                  margin-bottom: 3px;
+                "
+                role="group"
+                aria-label="Basic example"
+              >
+                <button
+                  type="button"
+                  class="minus2 btn btn-light"
+                  style="background-color: #c5c8ce; font-size: small"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+                <p class="number2 fs-5">1</p>
+                <button
+                  type="button"
+                  class="plus2 btn btn-light"
+                  style="background-color: #c5c8ce; font-size: small"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  class="remove btn btn-danger fs-6"
+                  style="padding: 1px 14px"
+                >
+                  Remove
+                </button>
+              </div>
+              <p class="fw-bold">
+                Product Total: $<span class="sil" id="shoe">45.99</span>
+              </p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="resim col-5">
+              <img
+                src="./img/photo3.jpg"
+                class="img-thumbnail"
+                alt=""
+                style="border-radius: 15px"
+              />
+            </div>
+            <div class="infos col-7 d-flex flex-column justify-content-between">
+              <h4>Antique Clock</h4>
+              <p class="text-warning fs-5 fw-bold">
+                $74.99<span
+                  class="text-black ms-1 text-decoration-line-through fs-6"
+                  >$94.99</span
+                >
+              </p>
+              <div
+                class="btn-group gap-2 mt-3"
+                style="
+                  border: 1px solid gray;
+                  padding: 1px 15px;
+                  width: 150px;
+                  height: 35px;
+                  margin-bottom: 3px;
+                "
+                role="group"
+                aria-label="Basic example"
+              >
+                <button
+                  type="button"
+                  class="minus3 btn btn-light"
+                  style="background-color: #c5c8ce; font-size: small"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+                <p class="number3 fs-5">1</p>
+                <button
+                  type="button"
+                  class="plus3 btn btn-light"
+                  style="background-color: #c5c8ce; font-size: small"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  class="remove btn btn-danger fs-6"
+                  style="padding: 1px 14px"
+                >
+                  Remove
+                </button>
+              </div>
+              <p class="fw-bold">
+                Product Total: $<span class="sil" id="clock">74.99</span>
+              </p>
+            </div>
+          </div>
 
-    <script src="./app.js"></script>
+          <div class="row mt-5">
+            <hr />
+            <div class="col-12 d-flex justify-content-between">
+              <p>Subtotal</p>
+              <p>$<span id="subTotal">146.96</span></p>
+            </div>
+            <hr />
+            <div class="col-12 d-flex justify-content-between">
+              <p>Tax(%18)</p>
+              <p>$<span id="tax">26.95</span></p>
+            </div>
+            <hr />
+            <div class="col-12 d-flex justify-content-between">
+              <p>Shipping</p>
+              <p>$<span id="shipping">15.00</span></p>
+            </div>
+            <hr />
+            <div class="col-12 d-flex justify-content-between">
+              <p>Total</p>
+              <p>$<span id="total">188.91</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="app.js"></script>
   </body>
 </html>
