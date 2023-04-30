@@ -6,19 +6,19 @@ const kargo = 15.0;
 const vergi = 0.18;
 
 let sepettekiler = [
-    { name: "Vintage Backpack", price: 34.99, adet: 1, img: "./img/photo1.png" },
-    { name: "Levi Shoes", price: 40.99, adet: 1, img: "./img/photo2.png" },
-    { name: "Antique Clock", price: 69.99, adet: 1, img: "./img/photo3.jpg" },
+  { name: "Vintage Backpack", price: 34.99, adet: 1, img: "./img/photo1.png" },
+  { name: "Levi Shoes", price: 40.99, adet: 1, img: "./img/photo2.png" },
+  { name: "Antique Clock", price: 69.99, adet: 1, img: "./img/photo3.jpg" },
 ];
 
 document.querySelector("#urun-rowlari").innerHTML
 
-sepettekiler.forEach((ürün)=>{
+sepettekiler.forEach((ürün) => {
 
-    //!DESTRUCTURING--(sürekli ürün yazmamiz gerekmesin diye ortak atama yaptik,tanimladik)
-    const{name, img, price, adet}=ürün
+  //!DESTRUCTURING--(sürekli ürün yazmamiz gerekmesin diye ortak atama yaptik,tanimladik)
+  const { name, img, price, adet } = ürün
 
-    document.querySelector("#urun-rowlari").innerHTML +=`<div class="card mb-3" style="max-width: 540px;">
+  document.querySelector("#urun-rowlari").innerHTML += `<div class="card mb-3" style="max-width: 540px;">
 
   <div class="row g-0">
 
@@ -34,7 +34,7 @@ sepettekiler.forEach((ürün)=>{
         
              <div class="ürün-price">
                     <p class="text-warning h2">$
-                      <span class="indirim-price">${(price*0.7).toFixed(2)}</span>
+                      <span class="indirim-price">${(price * 0.7).toFixed(2)}</span>
                       <span class="h5 text-dark text-decoration-line-through"> ${price}</span>
                     </p>
                   </div>
@@ -62,7 +62,7 @@ sepettekiler.forEach((ürün)=>{
                   </div>
 
                   <div class="mt-2">
-                    Ürün Toplam: $<span class="ürün-toplam">${(price*0.7*adet).toFixed(2)}</span>
+                    Ürün Toplam: $<span class="ürün-toplam">${(price * 0.7 * adet).toFixed(2)}</span>
                   </div>
       </div>
     </div>
@@ -74,7 +74,7 @@ sepettekiler.forEach((ürün)=>{
 
 //? browswer da en alttaki total kisimdaki table
 
-document.querySelector("#odeme-table").innerHTML =`<table class="table">
+document.querySelector("#odeme-table").innerHTML = `<table class="table">
             <tbody>
               <tr class="text-end">
                 <th class="text-start">Aratoplam</th>
@@ -95,79 +95,82 @@ document.querySelector("#odeme-table").innerHTML =`<table class="table">
             </tbody>
           </table>`
 
-          //!SILME
-    document.querySelectorAll(".remove-ürün").forEach((btn)=>{
-        btn.onclick=()=>{
+//!SILME
+document.querySelectorAll(".remove-ürün").forEach((btn) => {
+  btn.onclick = () => {
 
-            //!ekrandan silme:
-            btn.closest(".card").remove()
+    //!ekrandan silme:
+    btn.closest(".card").remove()
 
 
-            //!diziden silme:
+    //!diziden silme:
 
-            sepettekiler=sepettekiler.filter((ürün)=>ürün.name!=btn.closest(".card").querySelector("h5").textContent)
+    sepettekiler = sepettekiler.filter((ürün) => ürün.name != btn.closest(".card").querySelector("h5").textContent)
 
-            //!ekrandan silinen elemani tekrar güncel haliyle total'e ve ekrana yansittik
-            hesaplaTotal()
-        }
+    //!ekrandan silinen elemani tekrar güncel haliyle total'e ve ekrana yansittik
+    hesaplaTotal()
+  }
+})
+
+
+//!ADET DEGISTIRME
+
+document.querySelectorAll(".adet-controller").forEach((kutu) => {
+  const minus = kutu.firstElementChild
+  const amount = kutu.children[1]
+  //2.cocuk alternatif yazim: 
+  //const amount=minus.nextElementSibling
+  const plus = kutu.lastElementChild
+
+  minus.onclick = () => {
+    //!ekrandan adeti azalttik
+    amount.textContent -= 1
+
+    //!diziden adeti azalttik
+    sepettekiler.map((ürün) => {
+      if (ürün.name == minus.closest(".card").querySelector("h5").textContent) {
+        ürün.adet = ürün.adet - 1
+
+      }
     })
 
-
-    //!ADET DEGISTIRME
-
-    document.querySelectorAll(".adet-controller").forEach((kutu)=>{
-        const minus= kutu.firstElementChild
-        const amount= kutu.children[1]
-        //2.cocuk alternatif yazim: 
-        //const amount=minus.nextElementSibling
-        const plus= kutu.lastElementChild
-
-        minus.onclick=()=>{
-            //!ekrandan adeti azalttik
-            amount.textContent-=1
-
-            //!diziden adeti azalttik
-            sepettekiler.map((ürün)=>{
-                if(ürün.name==minus.closest(".card").querySelector("h5").textContent){
-                    urun.adet=ürün.adet-1 
-
-                }
-            })
-      
 
     //!ürün-toplam kismini ekranda güncelleyelim
-    minus.closest(".card").querySelector(".ürün-toplam").textContent=minus.closest(".card").querySelector(".indirim-price").textContent * amount.textContent
-    
+    minus.closest(".card").querySelector(".ürün-toplam").textContent = (minus.closest(".card").querySelector(".indirim-price").textContent * amount.textContent).toFixed(2)
+
     hesaplaTotal()
+  }
 
-
-        }
+  plus.onclick = () => {
+    amount.textContent++;
+    sepettekiler.map((ürün) => {
+      if (ürün.name == plus.closest(".card").querySelector("h5").textContent) {
+        ürün.adet = ürün.adet + 1;
+      }
     })
+    plus.closest(".card").querySelector(".ürün-toplam").textContent = (plus.closest(".card").querySelector(".indirim-price").textContent * amount.textContent).toFixed(2)
+    hesaplaTotal();
+  }
+})
 
 
-
-
-
-
-
-        
 hesaplaTotal()
 function hesaplaTotal() {
-    const ürünToplam = document.querySelectorAll(".ürün-toplam");
+  const ürünToplam = document.querySelectorAll(".ürün-toplam");
 
-    //? araToplam= en alttaki tüm ürünler için vergi ve kargo hariç sepettekilerin indirimli fiyat toplamı
-    //?Reduce tam olarak Array istiyor, nodelist yeterli değil
-    const araToplam = Array.from(ürünToplam).reduce(
-        (toplam, eleman) => toplam + Number(eleman.textContent),
-        0
-    );
+  //? araToplam= en alttaki tüm ürünler için vergi ve kargo hariç sepettekilerin indirimli fiyat toplamı
+  //?Reduce tam olarak Array istiyor, nodelist yeterli değil
+  const araToplam = Array.from(ürünToplam).reduce(
+    (toplam, eleman) => toplam + Number(eleman.textContent),
+    0
+  );
 
-    document.querySelector(".aratoplam").textContent = araToplam;
-    document.querySelector(".vergi").textContent = (araToplam * 0.18).toFixed(2)
-    // document.querySelector(".kargo").textContent=araToplam > 0 ? kargo: 0
-    document.querySelector(".kargo").textContent = 15.0
-    document.querySelector(".toplam").textContent =
-        Number(araToplam) + Number((araToplam * 0.18).toFixed(2)) + 15.0
+  document.querySelector(".aratoplam").textContent = (araToplam).toFixed(2);
+  document.querySelector(".vergi").textContent = (araToplam * 0.18).toFixed(2)
+  // document.querySelector(".kargo").textContent=araToplam > 0 ? kargo: 0
+  document.querySelector(".kargo").textContent = 15.0
+  document.querySelector(".toplam").textContent =
+   ( Number(araToplam) + Number(araToplam * 0.18) + 15.0).toFixed(2)
 
 
 }
